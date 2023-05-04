@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Chinese with Ghaid </string>
+    <string name="test_your_chinese">Test your Chinese!</string>
+    <string name="q">the word CAT in Chinese is :</string>
+    <string name="mao">Māo</string>
+    <string name="gou">Gǒu</string>
+    <string name="your_scoreTXT">your Score:</string>
+    <string name="submit">SUBMIT</string>
+    <string name="total_questions">Questions</string>
+    <string name="score">score</string>
+    <string name="tot">tot</string>
+</resources>
