@@ -9,9 +9,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button button1;
@@ -25,13 +30,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String SelectedAnswer="";
     int my_color ;
     int my_yel ;
+    private Animation top, bottom;
+    private TextView txt;
+    private ImageView img;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
          my_color = ContextCompat.getColor(this, R.color.pink2);
           my_yel = ContextCompat.getColor(this, R.color.yellow);
         questionsTxtV = findViewById(R.id.questionsTxtV);
@@ -44,6 +56,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         totalQuestionsN = findViewById(R.id.totalQuestionsN);
         totalQuestionsN.setText(String.valueOf(totalQuestions));
         loadNewQuestion();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                Intent intent = new Intent(MainActivity.this, splash.class);
+                startActivity(intent);
+                finish();
+            }
+        },5000);
     }
     @Override
     public void onClick(View v) {
